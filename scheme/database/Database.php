@@ -274,7 +274,9 @@ class Database {
                 $options[PDO::MYSQL_ATTR_SSL_CA] = $database_config['ssl_ca'];
             }
 
-            if (defined('PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT')) {
+            if (class_exists('Pdo\Mysql') && defined('Pdo\Mysql::ATTR_SSL_VERIFY_SERVER_CERT')) {
+                $options[Pdo\Mysql::ATTR_SSL_VERIFY_SERVER_CERT] = !empty($database_config['ssl_ca']);
+            } elseif (defined('PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT')) {
                 $options[PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT] = !empty($database_config['ssl_ca']);
             }
         }
