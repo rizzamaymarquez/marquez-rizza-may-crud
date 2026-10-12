@@ -964,6 +964,10 @@ class Model {
      */
     public function __get($key)
     {
+        if ($key === 'db' && !(lava_instance()->properties[$key] ?? null)) {
+            lava_instance()->call->database();
+        }
+
         return lava_instance()->$key;
     }
                             

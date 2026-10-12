@@ -80,9 +80,17 @@ class Controller
 	public function __get($prop) {
 		if (array_key_exists($prop, $this->properties)) {
 			return $this->properties[$prop];
-		} else {
-			throw new Exception("Undefined property $prop in class " . get_class($this));
 		}
+
+		if ($prop === 'db') {
+			$this->call = $this->call ?? load_class('invoker', 'kernel');
+			$this->call->database();
+			if (array_key_exists($prop, $this->properties)) {
+				return $this->properties[$prop];
+			}
+		}
+
+		throw new Exception("Undefined property $prop in class " . get_class($this));
 	}
 
 	/**

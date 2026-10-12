@@ -243,6 +243,7 @@ class Database {
             : null;
 
         switch ($driver) {
+            case 'mysqli':
             case 'mysql':
                 $dsn = "mysql:host=$host;dbname=$dbname_value;charset=$charset;port=$port";
                 break;

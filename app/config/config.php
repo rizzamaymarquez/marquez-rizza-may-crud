@@ -1,5 +1,5 @@
 <?php
-defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
+defined('PREVENT_DIRECT_SCRIPT_ACCESS') OR exit('No direct script access allowed');
 /**
  * ------------------------------------------------------------------
  * LavaLust - an opensource lightweight PHP MVC Framework
@@ -88,7 +88,7 @@ $config['date_default_timezone'] = 'Asia/Manila';
 | WARNING: You MUST set this value!
 |
 */
-$config['base_url'] 				= '';
+$config['base_url'] = 'http://127.0.0.1:3000/';
 
 /*
 |--------------------------------------------------------------------------

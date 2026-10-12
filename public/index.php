@@ -1,5 +1,6 @@
 <?php
 define('PREVENT_DIRECT_ACCESS', TRUE);
+define('PREVENT_DIRECT_SCRIPT_ACCESS', TRUE);
 /**
  * ------------------------------------------------------------------
  * LavaLust - an opensource lightweight PHP MVC Framework
